@@ -1,8 +1,8 @@
-
+//  this is valid only for square matrix.
 public class ninty_degree_matrix {
 
     public static void main(String[] args) {
-        int[][] max = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int[][] max = {{1, 2, 3}, {4, 5, 6,6}, {7, 8, 9}};
         int[][] rotate = new int[max.length][max[0].length];    //max.length ye column ki length dega max[0].length ye ow ki length dega.
 
         // int rotate.length =. 3;
