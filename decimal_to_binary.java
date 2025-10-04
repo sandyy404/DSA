@@ -2,21 +2,24 @@
 public class decimal_to_binary {
 
     public static void main(String[] args) {
-        int n = 4;
-        // String binary = "";
-        // int num=0;
-        // while (n > 0) {
-        //    num = n % 2;
-        //    binary = num + binary;
-        //     n = n / 2;
-        
-        // }
-        // System.out.print(binary + " ");
+        int original = -7;
+        int n = original;
+        String binary = "";
+
+        int num = 0;
+        while (Math.abs(n) > 0) {
+            num = Math.abs(n) % 7;
+            binary = num + binary;
+            n = Math.abs(n) / 7;
+        }
+        if (original < 0) {
+            binary = "-" + binary;
+        }
+        System.out.print(binary + " ");
         // decToBinary(n);
 
-
     }
-    
+
     // 2nd way
     // static void decToBinary(int n) {
     //     if (n > 0) {
@@ -26,7 +29,6 @@ public class decimal_to_binary {
     //         System.out.print(num);
     //     } 
     //     else if (n==0) {
-            
     //          System.out.print(n);
     //     }
     // }
