@@ -25,15 +25,15 @@ public class Merge {
         }
         // Copy remaining elements of L[] if any
         while (i < n1) {
-            arr[k] = L[i];
-            i++;
-            k++;
+            arr[k++] = L[i++];
+            
+            
         }
         // Copy remaining elements of R[] if any
         while (j < n2) {
-            arr[k] = R[j];
-            j++;
-            k++;
+            arr[k++] = R[j++];
+            
+            
         }
     }
 // O(log(n))
@@ -49,8 +49,8 @@ public class Merge {
 
     public static void main(String[] args) {
         int[] arr = {38, 27, 43, 10};
-        devide(arr, 0, arr.length - 1);
         int n = arr.length;
+        devide(arr, 0, n - 1);
         for (int i = 0; i < n; ++i) {
             System.out.print(arr[i] + " ");
         }

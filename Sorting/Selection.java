@@ -18,7 +18,7 @@ public class Selection {
     }
 
     public static void main(String[] args) {
-        int[] arr = {64, 25, 12, 22, 11};
+        int[] arr = {12, 9, 8, 30, 23, 11, 23};
         selection(arr);
         for (int a : arr) {
             System.out.print(a + " ");
