@@ -16,7 +16,7 @@ public class Quick {
         int pivot = arr[end];
         int i = start - 1;
         for (int j = start; j < end; j++) {
-            if (arr[j] < pivot) {
+            if (arr[j] <= pivot) {
                 i++;
                 int temp = arr[i];
                 arr[i] = arr[j];

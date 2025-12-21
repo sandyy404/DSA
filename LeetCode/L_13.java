@@ -29,7 +29,7 @@ public class L_13 {
         map.put('D', 500);
         map.put('M', 1000);
 
-        System.out.println(a);
+        System.out.println(map);
     }
 }
 
