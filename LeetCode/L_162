@@ -1,0 +1,19 @@
+public class L_162 {
+    public int findPeakElement(int[] nums) {
+        int n = nums.length();
+        int idx =0;
+        int s=0;
+        int e = n-1;
+        while(s<e){
+            if(nums[s]>nums[e]){
+                idx = s;
+                s++;
+            }else {
+                idx = e;
+                e--;
+            }
+        }
+        return idx;
+    }
+    ma
+}
