@@ -14,10 +14,9 @@ public class MinimizingCoins {
          coin++;
          x -= c[idx];
          idx = c.length-1;
+         return coins(c, x, idx, coin, sum);
       }
-
-      
-      return coins(c, x, idx - 1, coin, sum);
+      return coins(c, x, idx-1, coin, sum);
    }
 
    public static void main(String[] args) {
