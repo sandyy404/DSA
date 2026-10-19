@@ -1,7 +1,4 @@
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.*;
 
 public class LIS {
@@ -47,20 +44,21 @@ public class LIS {
       return i;
    }
 
-   public static void main(String[] args) throws IOException {
-      BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-      int n = Integer.parseInt(reader.readLine());
+   public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+      int n = sc.nextInt();
       int arr[] = new int[n];
       for (int i = 0; i < n; i++) {
-         arr[i] = Integer.parseInt(reader.readLine());
+         arr[i] = sc.nextInt();
       }
-      int[] dp = new int[n + 1];
+      int[] dp = new int[n];
       Arrays.fill(dp, 1);
       // int max = 0;
       // for (int i = 0; i < n; i++) {
       // max = Math.max(max, fun(i, arr,dp));
       // }
       // System.out.println(max);
+      ArrayList<Integer> list = new ArrayList<>();
       for (int i = 1; i < n; i++) {
          for (int pre = 0; pre < i; pre++) {
             if (arr[i] > arr[pre]) {
@@ -68,11 +66,14 @@ public class LIS {
             }
          }
       }
-      int max = 0;
       for (int i = 0; i < n; i++) {
-         max = Math.max(max, dp[i]);
+         System.out.print(dp[i] + " ");
       }
-      System.out.println(max);
+      // int max = 0;
+      // for (int i = 0; i < n; i++) {
+      // max = Math.max(max, dp[i]);
+      // }
+      // System.out.println(max);
 
       // List<Integer> list = new ArrayList<>();
       // for (int i = 0; i < n; i++) {
@@ -84,7 +85,25 @@ public class LIS {
       // }
       // }
       // System.out.println(list.size());
-
+      int i = 0;
+      int j = 1;
+      while (j < n) {
+         if (dp[j] > dp[i]) {
+            list.add(arr[i]);
+            i=j;
+            j++;
+         } else if (dp[j] == dp[i]) {
+            i++;
+            j++;
+         } else {
+            j++;
+         }
+      }
+      list.add(arr[n-1]);
+      System.out.println();
+      for (int a = 0; a < list.size(); a++) {
+         System.out.print(list.get(a) +" ");
+      }
    }
 }
 
