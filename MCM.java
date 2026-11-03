@@ -1,6 +1,3 @@
-// import java.util.Arrays;
-
-// public class MCM {
 //    public static int fun(int i, int j, int[] arr, int[][] dp) {
 //       if (i+1 == j)
 //          return 0;
@@ -32,7 +29,6 @@
 //       }
 //    }
 // }
-import java.util.Arrays;
 
 public class MCM {
    public static int fun(int i, int j, int[] arr, int[][] dp) {
@@ -43,28 +39,52 @@ public class MCM {
       int ans = Integer.MAX_VALUE;
       int val = 0;
       for (int k = i; k < j; k++) {
-         val = fun(i, k, arr, dp) + fun(k+1, j, arr, dp) + (arr[i-1] * arr[k] * arr[j]);
+         val = fun(i, k, arr, dp) + fun(k + 1, j, arr, dp) + (arr[i - 1] * arr[k] *
+               arr[j]);
          ans = Math.min(ans, val);
       }
       return dp[i][j] = ans;
    }
 
    public static void main(String[] args) {
-      int arr[] = { 2, 1, 3, 4 };
+      int arr[] = { 10, 20, 30, 20, 30 };
       int n = arr.length;
-      int dp[][] = new int[n + 1][n + 1];
-      for (int i = 0; i <= n; i++) {
-         Arrays.fill(dp[i], -1);
+      // int dp[][] = new int[n ][n ];
+      // for (int i = 0; i < n; i++) {
+      // Arrays.fill(dp[i], -1);
+      // }
+      // int ans = fun(1, n - 1, arr, dp);
+      // System.out.println(ans);
+      // for (int[] a : dp) {
+      // for (int num : a) {
+      // System.out.print(num + " ");
+      // }
+      // System.out.println();
+      // }
+      int[][] dp = new int[n][n];
+      for (int i = 0; i < n; i++) {
+         for (int j = 0; j < n; j++) {
+            if (i == j) {
+               dp[i][j] = 0;
+            }
+         }
       }
-      int ans = fun(1, n - 1, arr, dp);
-      System.out.println(ans);
-      for (int[] a : dp) {
-         for (int num : a) {
+      for (int i = n - 1; i > 0; i--) {
+         for (int j = i + 1; j < n; j++) {
+            int min = Integer.MAX_VALUE;
+            for (int k = i; k < j; k++) {
+               int steps = (arr[i - 1] * arr[k] * arr[j]) + dp[i][k] + dp[k + 1][j];
+               min = Math.min(min, steps);
+            }
+            dp[i][j] = min;
+         }
+      }
+      System.out.println(dp[1][n - 1]);
+      for (int val[] : dp) {
+         for (int num : val) {
             System.out.print(num + " ");
          }
          System.out.println();
       }
    }
 }
-
-	
